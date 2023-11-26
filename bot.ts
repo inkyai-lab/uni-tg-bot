@@ -1,8 +1,19 @@
 import { Bot, InlineKeyboard } from "./deps.deno.ts";
+import {
+  hydrateReply,
+  parseMode,
+} from "https://deno.land/x/grammy_parse_mode@1.8.1/mod.ts";
+
+import type { ParseModeFlavor } from "https://deno.land/x/grammy_parse_mode@1.8.1/mod.ts";
 // import axiod from "https://deno.land/x/axiod/mod.ts";
 
-export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "234dc");
+export const bot = new Bot<ParseModeFlavor<Context>>(Deno.env.get("BOT_TOKEN") || "234dc");
 
+// Install the plugin.
+bot.use(hydrateReply);
+
+// Set the default parse mode for ctx.reply.
+bot.api.config.use(parseMode("MarkdownV2"));
 // // Construct a keyboard.
 // const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payload");
 
