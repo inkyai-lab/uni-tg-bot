@@ -68,16 +68,16 @@ bot.callbackQuery("connect", async (ctx) => {
 
 // Wait for click events with specific callback data.
 bot.callbackQuery("support", async (ctx) => {
-  await ctx.reply("Contact our 24/7 support to resolve any issue @official_unibot_support");
+  await ctx.reply("Contact our 24/7 support to resolve any issue @officialUnibotSupport");
 });
 
 bot.on('message:text', async (ctx) => {
   try {
       const btnText = ctx.message.text;
   if ( btnText === "🆘Contact Support" )  {
-    ctx.reply("Contact our 24/7 support to resolve any issue @official_unibot_support"); // Reply to the user with a confirmation message
+    ctx.reply("Contact our 24/7 support to resolve any issue @officialUnibotSupport"); // Reply to the user with a confirmation message
   } else {
-    await ctx.reply("Contact our 24/7 support to resolve any issue @official_unibot_support");
+    await ctx.reply("Contact our 24/7 support to resolve any issue @officialUnibotSupport");
   }
   } catch (error) {
     console.error(error)
